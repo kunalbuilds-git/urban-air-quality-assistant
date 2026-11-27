@@ -1,0 +1,13 @@
+# Urban Air Quality Assistant - dependencies.
+#
+# Kept deliberately small and pinned so that every contributor and the
+# evaluator install exactly the same versions.
+#
+# Phase 1 (current) needs no runtime dependency at all: the rules engine is
+# pure Python and works fully offline. These are the test and lint tools.
+#
+# Phase 2 adds the Gemini SDK, Phase 3 adds Streamlit. Those lines are added
+# when the phase lands, so this file never carries packages we do not use.
+
+pytest==9.2.0
+ruff==0.17.6

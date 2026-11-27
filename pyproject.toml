@@ -1,0 +1,47 @@
+# Urban Air Quality Assistant - tool configuration.
+#
+# This file intentionally has no build backend: the project is an application,
+# not a distributable library. It exists to hold the ruff and pytest settings
+# so that formatting and testing are reproducible for every contributor.
+
+[tool.pytest.ini_options]
+minversion = "9.0"
+testpaths = ["tests"]
+# The application package lives in "src/", so the repository root has to be
+# importable for "from src.aqi import ..." to work in the tests.
+pythonpath = ["."]
+addopts = "-ra --strict-markers"
+markers = [
+    "persona: tests that use the Sharma family from the official brief",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["."]
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "F",    # pyflakes
+    "I",    # import sorting
+    "B",    # bugbear
+    "UP",   # pyupgrade
+    "SIM",  # simplify
+    "N",    # pep8 naming
+    "D",    # pydocstyle
+    "ANN",  # flake8-annotations
+    "C4",   # comprehensions
+    "RUF",  # ruff specific rules
+]
+ignore = [
+    "ANN401",  # "Any" is discouraged but occasionally useful for adapter code.
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Tests are allowed to use short names and light annotations; they document
+# themselves through their names and assertions.
+"tests/*" = ["D100", "D101", "D102", "D103", "D104", "ANN001", "ANN201", "ANN202"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"

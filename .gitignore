@@ -221,3 +221,25 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- Urban Air Quality Assistant ---
+# Local environment and secrets. The example file is tracked, the real one is not.
+.venv/
+.env
+!.env.example
+
+# Python caches and test artefacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local exports and scratch files
+*.log
+data/
+dist/
+build/
